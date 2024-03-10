@@ -1,0 +1,85 @@
+What do you understand by Terraform in AWS?
+It is similar to AWS Cloud Formation in the sense that it is also an “infrastructure as code” tool that allows you to create, update, and version your AWS infrastructure.
+
+What do you mean by Terraform init?
+This command is used to set up the working directory for Terraform configuration files.
+You can use the init command for:
+Installing Plugins
+Installation of a Child Module
+Initialization of the backend
+
+What is Terraform provider?
+A provider is responsible for API interactions that are thoughtful and reveal resources. Terraform is compatible with a wide range of cloud providers.
+
+What are the key features of Terraform?
+The ability to translate HCL code into JSON format
+A module count that keeps track of the number of modules applied to the infrastructure.
+Terraform’s high-level configuration language is used to define your infrastructure in human-readable declarative configuration files.
+Terraform generates an execution plan that specifies what it will do and asks for your approval before making any infrastructure alterations. You can assess the modifications before Terraform creates, updates, or destroys infrastructure.
+
+Define IAC?
+IAC or Infrastructure as Code allows you to build, change, and manage your infrastructure through coding instead of manual processes. The configuration files are created according to your infrastructure specifications and these configurations can be edited and distributed securely within an organization.
+
+What are the most useful Terraform commands?
+Some of the most useful Terraform commands are:
+terraform init - initializes the current directory
+terraform refresh - refreshes the state file
+terraform output - views Terraform outputs
+terraform apply - applies the Terraform code and builds stuff
+terraform destroy - destroys what has been built by Terraform
+terraform graph - creates a DOT-formatted graph
+terraform plan - a dry run to see what Terraform will do
+
+What is Terraform D?
+Terraform D is a plugin used on most in-service systems and Windows. Terraform init by default searches next directories for plugins.
+
+Define null resource in Terraform.
+A null resource is basically something that doesn't create anything on its own, but you can use it to define provisioners blocks. They also have a “trigger” attribute, which can be used to recreate the resource, hence to rerun the provisioner block if the trigger is hit.
+
+What do you understand by terraform backend?
+A backend defines where Terraform stores its state data files
+
+what is remote backend in terraform?
+A remote backend is a type of Terraform backend that stores the state file in a remote location, such as a cloud object storage service or a database. Remote backends provide several benefits, such as enabling collaboration between team members, versioning state files, and providing a history of changes.
+
+Explain the uses of Terraform CLI and list some basic CLI commands?
+The Terraform Command-Line Interface (CLI) is used to manage infrastructure and interact with Terraform state, configuration files, providers, etc.
+Here are some basic CLI commands:
+terraform init - prepares your working directory for other commands
+terraform destroy - destroys the previously-created infrastructure
+terraform validate - check whether the configuration is valid
+terraform apply - creates or updates the infrastructure
+terraform plan - shows changes needed by the current configuration
+
+What are modules in Terraform?
+A jug for numerous resources that are used jointly is known as a module in Terraform. The root module includes resources mentioned in the .tf files and is required for every Terraform.
+
+What is a Private Module Registry?
+A Private Module Registry is a feature from Terraform Cloud that allows you to share Terraform modules across the organization. You can enforce rules or “sentinel policies” on the registry that specify how members of your organization can use the modules
+
+what are provisioners in terraform?
+These are used for management of configuration just like ansible, cheff, puppet. But it is not recommended to use.
+3 types :
+file provisioner : making changes locally
+local-exec provisioner : connecting to remote machine when app is deployed from local and fetching or executing commands on the local cli to get data from remote to local
+remote-exec provisioner : connecting to remote machine when app is deployed from local and executing commands on the remote cli itself to get required data	
+
+Define Resource Graph in Terraform.
+A resource graph is a visual representation of the resources. It helps modify and create independent resources simultaneously. Terraform establishes a plan for the configuration of the graph to generate plans and refresh the state. It creates structure most efficiently and effectively to help us understand the drawbacks.
+
+Explain State File Locking?
+State file locking is Terraform mechanism in which operations on a specific state file are blocked to avoid conflicts between multiple users performing the same process. When one user releases the lock, then only the other one can operate on that state. This helps in preventing state file corruption. This is a backend operation.
+
+What do you understand by a Tainted Resource?
+A tainted resource is a resource that is forced to be destroyed and recreated on the next apply command. When a resource is marked as tainted, the state files are updated, but nothing changes on infrastructure. The terraform plan out shows that help will get destroyed and recreated. The changes get implemented when the next apply happens.
+
+
+How will you upgrade plugins on Terraform?
+Run ‘terraform init’ with ‘-upgrade’ option
+
+How to handle secrets in terraform?
+By keeping tf scripts in remote backend and providing them proper encrption like IAM AND RBAC(roll based access control)
+
+what is tainted terraform resource?
+It tells terraform that the resource has been degraded or not working properly. so that we run terraform apply again, then again this resource will get created.
+
